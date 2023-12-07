@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <script>
+      var texto = prompt("Por favor, insira um dado do tipo texto:");
+      var numero = prompt("Por favor, insira um dado do tipo numérico:");
+      var numeroConvertido = parseFloat(numero);
+      if (isNaN(numeroConvertido)) {
+        alert("O dado numérico inserido não é válido.");
+      } else {
+        var concatenacao = texto + numero;
+        alert("Concatenação do texto com o número: " + concatenacao);
+        var soma = numeroConvertido + 10;
+        alert("Resultado da soma do número com 10: " + soma);
+      }
+    </script>
+    <title>Desafio Complementar - Aula 02</title>
+  </head>
+  <body>
+    <h2>Desafio Complementar - Aula 02</h2>
+  </body>
+</html>
