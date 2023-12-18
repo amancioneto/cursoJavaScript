@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+    <title>Desafio Complementar Aula 04</title>
     <script>
       // Função 1: Coletar dados do usuário
       function coletarDados() {
@@ -33,16 +34,16 @@
         let dadosUsuario = coletarDados();
         let imc = calcularIMC(dadosUsuario);
         let resultado = avaliarIMC(imc);
-        console.log(
-          `Seu IMC é ${imc.toFixed(
-            2
-          )} e você está classificado como: ${resultado}`
-        );
+        document.getElementById(
+          "resultadoIMC"
+        ).innerText = `Seu IMC é ${imc.toFixed(
+          2
+        )} e você está classificado como: ${resultado}`;
       }
-
-      executarCalculoIMC();
     </script>
-    <title>Desafio Complemetar Aula 04</title>
   </head>
-  <body></body>
+  <body>
+    <button onclick="executarCalculoIMC()">Calcular IMC</button>
+    <p id="resultadoIMC"></p>
+  </body>
 </html>
