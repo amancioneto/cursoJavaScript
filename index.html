@@ -2,21 +2,47 @@
 <html lang="pt-br">
   <head>
     <script>
-      var texto = prompt("Por favor, insira um dado do tipo texto:");
-      var numero = prompt("Por favor, insira um dado do tipo numérico:");
-      var numeroConvertido = parseFloat(numero);
-      if (isNaN(numeroConvertido)) {
-        alert("O dado numérico inserido não é válido.");
-      } else {
-        var concatenacao = texto + numero;
-        alert("Concatenação do texto com o número: " + concatenacao);
-        var soma = numeroConvertido + 10;
-        alert("Resultado da soma do número com 10: " + soma);
+      // Função 1: Coletar dados do usuário
+      function coletarDados() {
+        let peso = parseFloat(prompt("Insira seu peso em quilogramas:"));
+        let altura = parseFloat(prompt("Insira sua altura em metros:"));
+        return { peso, altura };
       }
+
+      // Função 2: Calcular IMC
+      function calcularIMC(dados) {
+        let imc = dados.peso / (dados.altura * dados.altura);
+        return imc;
+      }
+
+      // Função 3: Avaliar resultado
+      function avaliarIMC(imc) {
+        if (imc < 18.5) {
+          return "Abaixo do peso";
+        } else if (imc >= 18.5 && imc < 25) {
+          return "Peso normal";
+        } else if (imc >= 25 && imc < 30) {
+          return "Sobrepeso";
+        } else {
+          return "Obesidade";
+        }
+      }
+
+      // Processo principal
+      function executarCalculoIMC() {
+        let dadosUsuario = coletarDados();
+        let imc = calcularIMC(dadosUsuario);
+        let resultado = avaliarIMC(imc);
+        console.log(
+          `Seu IMC é ${imc.toFixed(
+            2
+          )} e você está classificado como: ${resultado}`
+        );
+      }
+
+      executarCalculoIMC();
     </script>
-    <title>Desafio Complementar - Aula 02</title>
+    <title>Desafio Complemetar Aula 04</title>
   </head>
-  <body>
-    <h2>Desafio Complementar - Aula 02</h2>
-  </body>
+  <body></body>
 </html>
