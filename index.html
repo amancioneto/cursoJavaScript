@@ -2,48 +2,70 @@
 <html>
   <head>
     <title>Simulador Diverso</title>
+    <style>
+      #resultados {
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+    </style>
     <script>
       function calcularParcelas() {
         var total = parseFloat(prompt("Digite o valor total:"));
         var parcelas = parseInt(prompt("Digite o número de parcelas:"));
         var valorParcela = total / parcelas;
+        var resultado = "";
         for (var i = 1; i <= parcelas; i++) {
-          console.log("Parcela " + i + ": R$ " + valorParcela.toFixed(2));
+          resultado +=
+            "Parcela " + i + ": R$ " + valorParcela.toFixed(2) + "<br>";
         }
+        document.getElementById("resultados").innerHTML = resultado;
       }
 
       function simularEmprestimo() {
         var valorInicial = parseFloat(prompt("Digite o valor do empréstimo:"));
         var parcelas = parseInt(prompt("Digite o número de parcelas:"));
         var decremento = valorInicial * 0.05;
+        var resultado = "";
         for (var i = 1; i <= parcelas; i++) {
-          console.log("Parcela " + i + ": R$ " + valorInicial.toFixed(2));
+          resultado +=
+            "Parcela " + i + ": R$ " + valorInicial.toFixed(2) + "<br>";
           valorInicial -= decremento;
         }
+        document.getElementById("resultados").innerHTML = resultado;
       }
 
       function manipularEntrada() {
         var entrada;
-        while (entrada !== "sair") {
-          entrada = prompt("Digite algo (ou 'sair' para encerrar):");
-          console.log("Você digitou: " + entrada);
+        var resultado = "";
+        while (
+          (entrada = prompt("Digite algo (ou 'sair' para encerrar):")) !==
+          "sair"
+        ) {
+          resultado += "Você digitou: " + entrada + "<br>";
         }
+        document.getElementById("resultados").innerHTML = resultado;
       }
 
       function somaEMedia() {
         var soma = 0;
         var contador = 0;
         var entrada;
+        var resultado = "";
         while (true) {
           entrada = prompt("Digite um número (ou 'sair' para encerrar):");
           if (entrada === "sair") break;
           var numero = parseFloat(entrada);
           soma += numero;
           contador++;
-          console.log(
-            "Soma atual: " + soma + ", Média: " + (soma / contador).toFixed(2)
-          );
+          resultado +=
+            "Soma atual: " +
+            soma +
+            ", Média: " +
+            (soma / contador).toFixed(2) +
+            "<br>";
         }
+        document.getElementById("resultados").innerHTML = resultado;
       }
     </script>
   </head>
@@ -53,5 +75,6 @@
     <button onclick="simularEmprestimo()">Simular Empréstimo</button>
     <button onclick="manipularEntrada()">Manipular Entrada</button>
     <button onclick="somaEMedia()">Soma e Média de Valores</button>
+    <div id="resultados"></div>
   </body>
 </html>
