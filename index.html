@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <title>Desafio Complementar</title>
@@ -76,5 +76,46 @@
     <button onclick="manipularEntrada()">Manipular Entrada</button>
     <button onclick="somaEMedia()">Soma e Média de Valores</button>
     <div id="resultados"></div>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simulador de Biblioteca</title>
+  </head>
+  <body>
+    <h1>Simulador de Biblioteca</h1>
+    <button onclick="mostrarLivro()">Mostrar Informações do Livro</button>
+    <div id="infoLivro"></div>
+
+    <script>
+      // Construtor do objeto Livro
+      function Livro(titulo, autor, ano) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.ano = ano;
+
+        // Método para exibir informações do livro
+        this.exibirInfo = function () {
+          return (
+            "Título: " +
+            this.titulo +
+            "<br>" +
+            "Autor: " +
+            this.autor +
+            "<br>" +
+            "Ano: " +
+            this.ano
+          );
+        };
+      }
+
+      // Função para criar um livro e mostrar suas informações
+      function mostrarLivro() {
+        var livro = new Livro("Dom Casmurro", "Machado de Assis", 1899);
+        document.getElementById("infoLivro").innerHTML = livro.exibirInfo();
+      }
+    </script>
   </body>
 </html>
